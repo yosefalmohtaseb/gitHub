@@ -5,14 +5,16 @@ import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Alert from "./components/layout/Alert";
 import About from "./components/pages/About";
+import ErrorBoundary from "./components/pages/ErrorBoundary";
 import User from "./components/users/User";
 import GithubState from "./context/github/githubState";
 import AlertState from "./context/alert/alertState";
 import Home from "./components/pages/Home";
-import NotFound  from "./components/pages/NotFound";
+import NotFound from "./components/pages/NotFound";
 
 const App = () => {
   return (
+    <ErrorBoundary>
     <GithubState>
       <AlertState>
         <Router>
@@ -31,6 +33,7 @@ const App = () => {
         </Router>
       </AlertState>
     </GithubState>
+    </ErrorBoundary>
   );
 };
 
